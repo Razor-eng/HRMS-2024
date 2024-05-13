@@ -14,7 +14,7 @@ const Login = () => {
                         <Input label={'Password'} type={'password'} />
                     </div>
                     <div className="flex w-full mt-2">
-                        <Button name={'Register'} className={'rounded-full'} bgColor={'#1C80C2'} />
+                        <Button name={'Login'} className={'rounded-full'} bgColor={'#1C80C2'} />
                     </div>
                     <div className="flex w-full gap-4 items-center">
                         <div className="w-full border-2"></div>
