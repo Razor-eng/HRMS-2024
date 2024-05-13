@@ -28,7 +28,7 @@ const Login = () => {
                         </button>
                     </div>
                     <h2>
-                        Already have an account? <Link to={'/register'} className="underline underline-offset-2 text-sky-600">Login</Link>
+                        {`Don't`} have an account? <Link to={'/register'} className="underline underline-offset-2 text-sky-600">Register</Link>
                     </h2>
                 </div>
                 <div className="w-full">

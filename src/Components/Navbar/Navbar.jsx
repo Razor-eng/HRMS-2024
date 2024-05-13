@@ -11,6 +11,7 @@ import NavModal from "./NavModal";
 import { useState } from "react";
 import { GoVerified } from "react-icons/go";
 import { RiAppsFill, RiAwardFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
@@ -74,7 +75,9 @@ const Navbar = () => {
                     >
                         <RxHamburgerMenu fontSize={26} />
                     </div>
-                    <img src="/logo.png" alt="" className="w-44" />
+                    <Link to={'/'}>
+                        <img src="/logo.png" alt="" className="w-44" />
+                    </Link>
                 </div>
             </div>
             <NavModal NavItems={NavItems} setOpen={setOpen} open={open} />
