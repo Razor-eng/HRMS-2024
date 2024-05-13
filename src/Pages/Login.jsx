@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 const Login = () => {
     return (
         <div className="flex items-center pt-16 justify-center h-screen bg-gradient-to-r from-yellow-300 via-green-500 to-blue-500">
-            <div className="flex w-[900px] h-[648px] rounded-md bg-white py-8 px-8">
+            <div className="flex w-[1000px] h-[660px] mt-4 rounded-md bg-white py-8 px-8">
                 <div className="flex h-fit border w-96 mt-8 flex-col bg-zinc-100 justify-center items-center gap-4    px-10 py-6 shadow-lg rounded-md">
                     <img src="/logo.png" alt="" className="w-48" />
                     <div className="w-72 flex flex-col gap-4">
