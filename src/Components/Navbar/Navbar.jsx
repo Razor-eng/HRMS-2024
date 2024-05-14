@@ -11,56 +11,59 @@ import NavModal from "./NavModal";
 import { useState } from "react";
 import { GoVerified } from "react-icons/go";
 import { RiAppsFill, RiAwardFill } from "react-icons/ri";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import Button from "../Button/Button";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
+    const location = useLocation();
+
     const NavItems = [
-        { icon: MdOutlineSpaceDashboard, title: 'Dashboard' },
+        { icon: MdOutlineSpaceDashboard, title: 'Dashboard', path: '/dashboard' },
         {
             icon: IoPeople, title: 'Employees', subNav: [
-                { title: 'Employee Create', icon: BsPersonPlusFill },
-                { title: 'Employee List', icon: FaRegListAlt },
-                { title: 'Awards List', icon: RiAwardFill },
-                { title: 'Notice List', icon: BiClipboard },
-                { title: 'Employee Imports', icon: BiImport },
+                { title: 'Employee Create', path: '/employees/add', icon: BsPersonPlusFill },
+                { title: 'Employee List', path: '/employees/list', icon: FaRegListAlt },
+                { title: 'Awards List', path: '/employees/awards', icon: RiAwardFill },
+                { title: 'Notice List', path: '/employees/notice', icon: BiClipboard },
+                { title: 'Employee Imports', path: '/employees/import', icon: BiImport },
             ]
         },
         {
             icon: FaRegCalendarCheck, title: 'Attendance', subNav: [
-                { title: 'Add Attendance', icon: BsPersonCheck },
-                { title: 'Leave Application', icon: BsPersonX },
-                { title: 'Absent Details', icon: BsFileX },
-                { title: 'Attendance Verification', icon: GoVerified },
-                { title: 'Attendance Imports', icon: BiImport },
+                { title: 'Add Attendance', path: '/attendance/add', icon: BsPersonCheck },
+                { title: 'Leave Application', path: '/attendance/leave', icon: BsPersonX },
+                { title: 'Absent Details', path: '/attendance/absents', icon: BsFileX },
+                { title: 'Attendance Verification', path: '/attendance/verification', icon: GoVerified },
+                { title: 'Attendance Imports', path: '/attendance/import', icon: BiImport },
             ]
         },
         {
             icon: MdAttachMoney, title: 'Payroll', subNav: [
-                { title: 'Pay Slip', icon: BiMoneyWithdraw },
-                { title: 'Salary Setup', icon: FaCashRegister },
-                { title: 'Salary Process', icon: FaRegListAlt },
-                { title: 'Employee Loan', icon: GiTakeMyMoney },
-                { title: 'Employee Conveyance', icon: TbPackages },
-                { title: 'Tax File Upload', icon: BiImport },
+                { title: 'Pay Slip', path: '/payroll/payslip', icon: BiMoneyWithdraw },
+                { title: 'Salary Setup', path: '/payroll/setup', icon: FaCashRegister },
+                { title: 'Salary Process', path: '/payroll/process', icon: FaRegListAlt },
+                { title: 'Employee Loan', path: '/payroll/loan', icon: GiTakeMyMoney },
+                { title: 'Employee Conveyance', path: '/payroll/conveyance', icon: TbPackages },
+                { title: 'Tax File Upload', path: '/payroll/import', icon: BiImport },
             ]
         },
         {
             icon: TbReportAnalytics, title: 'Reports', subNav: [
-                { title: 'Attendance Report', icon: BsPersonSquare },
-                { title: 'Payslip Bulk Download', icon: FaMailBulk },
-                { title: 'Monthly salary', icon: BsCash },
-                { title: 'Yearly Salary', icon: BiCalendar },
-                { title: 'Salary Deductions', icon: MdMoneyOffCsred },
+                { title: 'Attendance Report', path: '/reports/attendance', icon: BsPersonSquare },
+                { title: 'Payslip Bulk Download', path: '/reports/payslip', icon: FaMailBulk },
+                { title: 'Monthly salary', path: '/reports/monthly', icon: BsCash },
+                { title: 'Yearly Salary', path: '/reports/yearly', icon: BiCalendar },
+                { title: 'Salary Deductions', path: '/reports/deductions', icon: MdMoneyOffCsred },
             ]
         },
         {
             icon: MdWorkOutline, title: 'Job', subNav: [
-                { title: 'Candidate Create', icon: BsPersonPlusFill },
-                { title: 'Candidate List', icon: BsPersonLinesFill },
-                { title: 'Job Openings List', icon: BsOpencollective },
-                { title: 'Job Application List', icon: RiAppsFill },
-                { title: 'Trainings List', icon: MdModelTraining },
+                { title: 'Candidate Create', path: '/jobs/add', icon: BsPersonPlusFill },
+                { title: 'Candidate List', path: '/jobs/list', icon: BsPersonLinesFill },
+                { title: 'Job Openings List', path: '/jobs/openings', icon: BsOpencollective },
+                { title: 'Job Application List', path: '/jobs/applications', icon: RiAppsFill },
+                { title: 'Trainings List', path: '/jobs/trainings', icon: MdModelTraining },
             ]
         },
     ]
@@ -78,6 +81,15 @@ const Navbar = () => {
                     <Link to={'/'}>
                         <img src="/logo.png" alt="" className="w-44" />
                     </Link>
+                </div>
+                <div className="flex items-center gap-4">
+                    <Link to={'/register'}>
+                        <Button name={'SignUp'} bgColor={'#01AC61'} />
+                    </Link>
+                    <Link to={'/login'}>
+                        <Button name={'Login'} bgColor={'#2987C6'} />
+                    </Link>
+                    <img className="inline-block size-[45px] rounded-full" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" alt="Image Description"></img>
                 </div>
             </div>
             <NavModal NavItems={NavItems} setOpen={setOpen} open={open} />

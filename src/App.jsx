@@ -3,6 +3,8 @@ import Home from "./Pages/Home"
 import Navbar from "./Components/Navbar/Navbar"
 import Register from "./Pages/Register"
 import Login from "./Pages/Login"
+import Add from "./Components/Employees/Add"
+import Dashboard from "./Pages/Dashboard"
 
 function App() {
   return (
@@ -13,6 +15,14 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/employees" >
+            <Route path="add" element={<Add />} />
+            {/* <Route path="list" element={<EmployeeList />}></Route>
+            <Route path="imports" element={<EmployeeImports />}></Route>
+            <Route path="awards" element={<EmployeeAwardsList />}></Route>
+            <Route path="notice" element={<EmployeeNoticeList />}></Route> */}
+          </Route>
           {/* <Route path="/projects" element={<Projects />} />
           <Route path="/skills" element={<Skills />} />
           <Route path="/contacts" element={<Contacts />} />
@@ -20,7 +30,7 @@ function App() {
           <Route path="/skill/:skillName" element={<SkillDetails />} /> */}
         </Routes>
       </BrowserRouter>
-    </div>
+    </div >
   )
 }
 

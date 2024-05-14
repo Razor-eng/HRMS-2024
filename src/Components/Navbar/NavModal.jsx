@@ -2,6 +2,7 @@
 import { IoClose } from "react-icons/io5"
 import { useState } from "react";
 import { RiArrowDropDownLine } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 const NavModal = ({ NavItems, open, setOpen }) => {
     const [selected, setSelected] = useState(0);
@@ -21,10 +22,14 @@ const NavModal = ({ NavItems, open, setOpen }) => {
                     </div>
                     <div className="flex flex-col gap-3 mt-6 pl-10">
                         {NavItems.map((item, id) => (
-                            <div className="flex flex-col" key={id}>
-                                <div
+                            <div
+                                className="flex flex-col"
+                                onClick={() => { selected === id ? setSelected(0) : setSelected(id) }}
+                                key={id}
+                            >
+                                <Link
+                                    to={item.path}
                                     className="text-xl flex items-center justify-between hover:bg-zinc-300 rounded-lg px-6 py-2 cursor-pointer w-52"
-                                    onClick={() => { selected === id ? setSelected(0) : setSelected(id) }}
                                 >
                                     <div className="flex items-center gap-2">
                                         <item.icon />
@@ -33,15 +38,19 @@ const NavModal = ({ NavItems, open, setOpen }) => {
                                     {id !== 0 &&
                                         <RiArrowDropDownLine className={`${selected === id ? 'rotate-180' : ''}`} />
                                     }
-                                </div>
+                                </Link>
                                 {id !== 0 &&
                                     (selected === id &&
                                         <div className="bg-zinc-200 mr-[72px] rounded-md flex flex-col gap-3 py-4 overflow-hidden cursor-pointer">
                                             {item.subNav?.map((item, id) => (
-                                                <div className={`flex items-center text-zinc-600 hover:text-zinc-950 pl-4 mx-2 py-1 rounded-md text-sm gap-2 active:scale-95 hover:scale-105 hover:shadow-md transition-all ease-in duration-150`} key={id}>
+                                                <Link
+                                                    to={item.path}
+                                                    className={`flex items-center text-zinc-600 hover:text-zinc-950 pl-4 mx-2 py-1 rounded-md text-sm gap-2 active:scale-95 hover:scale-105 hover:shadow-md transition-all ease-in duration-150`}
+                                                    key={id}
+                                                >
                                                     <item.icon size={18} />
                                                     <h2 className="col-span-3">{item.title}</h2>
-                                                </div>
+                                                </Link>
                                             ))}
                                         </div>
                                     )

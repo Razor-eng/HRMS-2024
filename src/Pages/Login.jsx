@@ -7,11 +7,20 @@ const Login = () => {
     return (
         <div className="flex items-center pt-16 justify-center h-screen bg-gradient-to-r from-yellow-300 via-green-500 to-blue-500">
             <div className="flex w-[1000px] h-[660px] mt-4 rounded-md bg-white py-8 px-8">
-                <div className="flex h-fit border w-96 mt-8 flex-col bg-zinc-100 justify-center items-center gap-4    px-10 py-6 shadow-lg rounded-md">
+                <div className="flex h-fit border w-96 mt-4 flex-col bg-zinc-100 justify-center items-center gap-4    px-10 py-6 shadow-lg rounded-md">
                     <img src="/logo.png" alt="" className="w-48" />
                     <div className="w-72 flex flex-col gap-4">
                         <Input label={'Email'} type={'email'} />
-                        <Input label={'Password'} type={'password'} />
+                        <div className="flex flex-col gap-2 mb-6">
+                            <Input label={'Password'} type={'password'} />
+                            <div className="flex justify-between">
+                                <div className="flex gap-1">
+                                    <input type="checkbox" className="cursor-pointer" />
+                                    <p className="text-sm text-zinc-400">Remember me</p>
+                                </div>
+                                <p className="underline text-sm text-blue-400 hover:opacity-80 cursor-pointer">Forgot Password?</p>
+                            </div>
+                        </div>
                     </div>
                     <div className="flex w-full mt-2">
                         <Button name={'Login'} className={'rounded-full'} bgColor={'#1C80C2'} />
