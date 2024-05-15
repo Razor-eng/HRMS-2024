@@ -31,9 +31,13 @@ const Dashboard = () => {
                 </div>
                 <div className="border col-span-3 px-8 py-6 rounded-md shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
                     <h2 className="text-xl text-zinc-600 font-semibold">Summary</h2>
-                    <div className="flex justify-between px-10">
-                        <div className="mt-20">
-                            <table className="divide-y divide-gray-200 border shadow-md">
+                    <div className="flex justify-between items-center px-10">
+                        <div className="mt-4 px-6">
+                            <DashboardCard value={4} total={7} circular={true} />
+                            <p className="text-xl text-zinc-600">Attendance Percentage</p>
+                        </div>
+                        <div className="flex flex-col justify-between items-center">
+                            <table className="divide-y divide-gray-200 border mb-10 shadow-md">
                                 <thead>
                                     <tr>
                                         <th scope="col" className="px-6 py-6 border-r text-start text-xs font-semibold text-gray-600 uppercase">Total</th>
@@ -49,10 +53,7 @@ const Dashboard = () => {
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>
-                        <div className="mt-4 px-6">
-                            <DashboardCard value={4} total={7} circular={true} />
-                            <p className="text-xl text-zinc-600">Attendance Percentage</p>
+                            <h2 className="text-xl text-zinc-600">Data Table</h2>
                         </div>
                     </div>
                 </div>

@@ -3,8 +3,16 @@ import Home from "./Pages/Home"
 import Navbar from "./Components/Navbar/Navbar"
 import Register from "./Pages/Register"
 import Login from "./Pages/Login"
-import Add from "./Components/Employees/Add"
 import Dashboard from "./Pages/Dashboard"
+import AddEmployee from "./Components/Employees/Add"
+import EmployeeList from "./Components/Employees/List"
+import EmployeeAwards from "./Components/Employees/Awards"
+import EmployeeNotice from "./Components/Employees/Notice"
+import EmployeeImport from "./Components/Employees/Import"
+import AttendanceImport from "./Components/Attendance/Import"
+import AddAttendance from "./Components/Attendance/Add"
+import AddLeave from "./Components/Attendance/Leave"
+import AbsentList from "./Components/Attendance/Absents"
 
 function App() {
   return (
@@ -17,11 +25,18 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/employees" >
-            <Route path="add" element={<Add />} />
-            {/* <Route path="list" element={<EmployeeList />}></Route>
-            <Route path="imports" element={<EmployeeImports />}></Route>
-            <Route path="awards" element={<EmployeeAwardsList />}></Route>
-            <Route path="notice" element={<EmployeeNoticeList />}></Route> */}
+            <Route path="add" element={<AddEmployee />} />
+            <Route path="list" element={<EmployeeList />} />
+            <Route path="awards" element={<EmployeeAwards />} />
+            <Route path="notice" element={<EmployeeNotice />} />
+            <Route path="import" element={<EmployeeImport />}></Route>
+          </Route>
+          <Route path="/attendance">
+            <Route path="add" element={<AddAttendance />} />
+            <Route path="leave" element={<AddLeave />} />
+            <Route path="absents" element={<AbsentList />} />
+            {/* <Route path="attendanceverification" element={<AttendanceVerification />}></Route> */}
+            <Route path="import" element={<AttendanceImport />} />
           </Route>
           {/* <Route path="/projects" element={<Projects />} />
           <Route path="/skills" element={<Skills />} />
